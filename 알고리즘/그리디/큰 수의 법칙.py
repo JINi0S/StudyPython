@@ -1,4 +1,4 @@
-# 입력 조건 : 째 줄에 N(2<= N <=1000)
+# 단순하게 생각
 N, M, K =map(int, input().split())
 li = list(map(int, input().split()))
 import math
@@ -8,6 +8,7 @@ li.sort(reverse= True)
 print(li)
 
 sum = 0
+"""
 while M > 0:
     for _ in range(K):
         if(M == 0):
@@ -20,4 +21,10 @@ while M > 0:
     else:
         sum += li[1]
         M -= 1
+print(sum)"""
+
+
+# 정답 코드
+sum = (K * li[0] + li[1] )  * ( M // ( K + 1))
+sum += li[0] * (M % ( K + 1))
 print(sum)
