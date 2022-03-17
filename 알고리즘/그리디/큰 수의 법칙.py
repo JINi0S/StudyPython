@@ -6,13 +6,18 @@ print(li)
 
 li.sort(reverse= True)
 print(li)
-#mx = math.max(li)
-#li.remove(mx)
+
 sum = 0
 while M > 0:
     for _ in range(K):
-        sum += li[0]
-        M  -= 1 
-    sum += li[1]
-    M -= 1
+        if(M == 0):
+            break
+        else:
+            sum += li[0]
+            M  -= 1 
+    if(M == 0):
+        break
+    else:
+        sum += li[1]
+        M -= 1
 print(sum)
