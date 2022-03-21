@@ -4,11 +4,12 @@ import readline
 
 
 N, M = map(int, input().split())
-max = 0
+result = 0
 for _ in range(N):
     card = list(map(int, input().split()))
     card.sort()
-    if max < card[0]:
-        max = card[0]
-
-print(max)
+    if result < card[0]:
+        result = card[0]
+    #min_value = min(Data)
+    #result = max(min_value, result)
+print(result)
