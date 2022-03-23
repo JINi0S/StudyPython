@@ -3,8 +3,6 @@
 # 단, 두번째 연산은 N이 K로 나누어 떨어질 때만 선택할 수 있다.
 # 1. N에서 1을 뺸다.
 # 2. N을 K로 나눈다. 
-import re
-
 
 n, k =map(int, input().split())
 
