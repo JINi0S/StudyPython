@@ -11,6 +11,8 @@ a = list(input().split())
 
 print(a)
 for i in range(len(a)):
+    pre_x = x
+    pre_y = y 
     if a[i] == arrow[0]:
         x += arr[0][0]
         y += arr[0][1]
@@ -23,4 +25,13 @@ for i in range(len(a)):
     elif a[i] == arrow[3]:
         x += arr[3][0]
         y += arr[3][1]
-print(x, y)
+   
+    if x == 0 or x == len(a)+1 or y == 0 or y == len(a) + 1:
+        x = pre_x
+        y = pre_y 
+        
+    else:
+        res_x = x
+        res_y = y
+    print(res_x, res_y)
+print("last",res_x, res_y)
