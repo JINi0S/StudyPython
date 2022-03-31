@@ -6,3 +6,6 @@
 
 출력
 두 번째로 큰 정수를 출력한다."""
+a = list(map(int, input().split()))
+a.sort(reverse=True)
+print(a[1])
