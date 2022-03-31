@@ -14,17 +14,19 @@ N이 주어졌을 때, N의 사이클의 길이를 구하는 프로그램을 작
 첫째 줄에 N의 사이클 길이를 출력한다."""
 
 n = int(input())
-res = 0
+m = n
+res = int
 cycl = 0
-while n != res:
+
+while m != res:
     a = int(n / 10)
-    b = n % 10
+    b = int(n % 10)
     res = a + b
     if res > 9:
         res = int(res % 10)
     res = int(str(b) + str(res))
+    
     cycl += 1    
-    if n == res:
-        break
+    n = res
 
 print(cycl)
