@@ -19,15 +19,15 @@
 import sys
 sys.setrecursionlimit(10000)
 
-a, res =[], []
+a =[]
+res = []
 
 def test(x, y):
     if x < 0 or x >= w or y < 0 or y >= h:
         return False
 
     if a[x][y] == 1 :     
-        a[x][y] = 0 
-
+        a[x][y] = 0
         test(x-1, y)
         test(x, y-1)
         test(x+1, y)
@@ -39,25 +39,29 @@ def test(x, y):
         test(x+1, y-1)
 
         return True
-
+    
     return False
+
 
 result = 0
 while True:
     w, h = map(int, input().split())
-    if w == 0  and h == 0:
+    print(w, h)
+    if w == 0 and h == 0:
+        print("bresal")
         break
+    else:
+        for i in range(h):
+            a.append(list(map(int, input().split())))
+            
+        for i in range(w):
+            for j in range(h):
+                if test(w, h) == True:
+                    result += 1
+                    print(result)
+        res.append(result)
+        #print("res", result)
 
-    for i in range(h):
-        a.append(list(map(int, input().split())))
-        
-    for i in range(w):
-        for j in range(h):
-            if test(w, h) ==True:
-                result += 1
-    res.append(result)
-    print("res", result)
-
-for i in range(len(res)):
-    print(res[i])
+#for i in range(len(res)):
+#3print(res)
 
