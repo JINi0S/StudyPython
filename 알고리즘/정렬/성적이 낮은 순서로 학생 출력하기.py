@@ -13,3 +13,4 @@ N = sorted(N, key = setting)
 for b in N:
     print(b[0], end = ' ')
 
+##
