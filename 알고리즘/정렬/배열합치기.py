@@ -17,8 +17,6 @@ n, m = map(int,input().split())
 
 a=list(map(int, input().split()))
 b = list(map(int, input().split()))
-print(a)
-print(b)
 a = a + b
 print(a)
 a.sort()
