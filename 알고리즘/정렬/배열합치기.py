@@ -11,12 +11,16 @@
 첫째 줄에 두 배열을 합친 후 정렬한 결과를 출력한다."""
 
 n, m = map(int,input().split())
-#a = [0] * n  
-#b = [0] * m    
+a = [0] * n  
+b = [0] * m    
 
 
 a=list(map(int, input().split()))
 b = list(map(int, input().split()))
 a = a + b
-print(a)
 a.sort()
+for i in range(len(a)):
+    if i < len(a)-1:
+        print(a[i], end=' ')
+    else:
+        print(a[i])
