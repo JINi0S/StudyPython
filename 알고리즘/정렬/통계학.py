@@ -16,6 +16,7 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 둘째 줄에는 중앙값을 출력한다.
 셋째 줄에는 최빈값을 출력한다. 여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.
 넷째 줄에는 범위를 출력한다"""
+import sys
 a = []
 sum = 0
 i_len = 1
@@ -23,12 +24,15 @@ long_len = 1
 long_li=[]
 n = int(input())
 for _ in range(n):
-    i = int(input())
+    i = int(sys.stdin.readline().rstrip())
     a.append(i)
     sum += i 
 print(round(sum/n))
+
+
+
 a.sort()
-print(a[(int(n/2))])
+print(a[(n//2)])
 
 if n > 2:
     for i in range(n-1): # 0 부터 n-1 까지 반복
@@ -44,9 +48,11 @@ else:
 
 if len(long_li) > 1:
     print(list(set(long_li))[1])
-elif len(long_li)==1:
+elif len(long_li) == 1:
     print(long_li[0])
-elif len(long_li)==0: # 다 다른 경우
+elif len(long_li) == 0: # 다 다른 경우
+    a = list(set(a))
+    a.sort()
     print(a[1])
 
 print(abs(a[0]-a[-1]))
