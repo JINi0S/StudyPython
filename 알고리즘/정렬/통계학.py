@@ -18,12 +18,35 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 넷째 줄에는 범위를 출력한다"""
 a = []
 sum = 0
+i_len = 1
+long_len = 1
+long_li=[]
 n = int(input())
 for _ in range(n):
-    i = input()
+    i = int(input())
     a.append(i)
     sum += i 
 print(round(sum/n))
 a.sort()
-print(a[n/2 + 1])
-print()
+print(a[(int(n/2))])
+
+if n > 2:
+    for i in range(n-1): # 0 부터 n-1 까지 반복
+        if a[i] == a[i+1]:
+            i_len += 1
+            if long_len <= i_len:
+                long_len = i_len
+                long_li.append(a[i])
+        else :
+            i_len = 1
+else:
+    long_li.append(a[0])
+
+if len(long_li) > 1:
+    print(list(set(long_li))[1])
+elif len(long_li)==1:
+    print(long_li[0])
+elif len(long_li)==0: # 다 다른 경우
+    print(a[1])
+
+print(abs(a[0]-a[-1]))
