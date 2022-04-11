@@ -18,7 +18,6 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 넷째 줄에는 범위를 출력한다"""
 import sys
 a = []
-sum = 0
 i_len = 1
 long_len = 1
 long_li=[]
@@ -26,10 +25,8 @@ n = int(input())
 for _ in range(n):
     i = int(sys.stdin.readline().rstrip())
     a.append(i)
-    sum += i 
-print(round(sum/n))
-
-
+su = sum(a)
+print(round(su/n))
 
 a.sort()
 print(a[(n//2)])
@@ -37,20 +34,28 @@ print(a[(n//2)])
 if n > 2:
     for i in range(n-1): # 0 부터 n-1 까지 반복
         if a[i] == a[i+1]:
-            i_len += 1
-            if long_len <= i_len:
+            i_len += 1 # 그 다음거랑 동일하면 
+            
+        else : # i랑 i+1이랑 다른 경우
+            if long_len < i_len:
                 long_len = i_len
+                long_li=[]
                 long_li.append(a[i])
-        else :
-            i_len = 1
+            elif long_len == i_len:
+                if a[i] not in long_li:
+                    long_li.append(a[i])
+
+
+            #i_len = 1
 else:
     long_li.append(a[0])
 
+#long_li =list(set(long_li))
 if len(long_li) > 1:
-    print(list(set(long_li))[1])
+    print(long_li[1])
 elif len(long_li) == 1:
     print(long_li[0])
-elif len(long_li) == 0: # 다 다른 경우
+else: # len(long_li) == 0: # 다 다른 경우
     a = list(set(a))
     a.sort()
     print(a[1])
