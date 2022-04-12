@@ -6,3 +6,24 @@
 
 출력
 첫째 줄에 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력한다."""
+n = int(input())
+
+def han(m):
+    if m <= 99:
+        return True
+    else:
+        x = int((str(m))[0]) - int((str(m))[1])
+        y = int((str(m))[1]) - int((str(m))[2])
+        #print(x, y)
+        
+        if  x == y:
+            return True
+        else:
+            return False
+
+
+count =0
+for i in range(1, n+1):
+    if han(i) == True:
+        count += 1
+print(count)
