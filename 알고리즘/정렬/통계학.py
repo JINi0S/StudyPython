@@ -25,39 +25,58 @@ n = int(input())
 for _ in range(n):
     i = int(sys.stdin.readline().rstrip())
     a.append(i)
-su = sum(a)
-print(round(su/n))
+#su = sum(a)
+#print(round(su/n))
+
+avg = (sum(a) / n)
+
+if avg > 0:
+    if avg%1 >= 0.5:
+        avg = int(avg) + 1
+    else: 
+        avg = int(avg)
+else:
+    if avg %1 >= 0.5:
+        avg = int(avg)
+    else:
+        avg = int(avg) - 1
+
+print(avg)
 
 a.sort()
 print(a[(n//2)])
 
-if n > 2:
-    for i in range(n-1): # 0 부터 n-1 까지 반복
-        if a[i] == a[i+1]:
-            i_len += 1 # 그 다음거랑 동일하면 
-            
-        else : # i랑 i+1이랑 다른 경우
-            if long_len < i_len:
-                long_len = i_len
-                long_li=[]
-                long_li.append(a[i])
-            elif long_len == i_len:
-                if a[i] not in long_li:
-                    long_li.append(a[i])
+data = dict()
+for i in range(n):
+    if str(a[i]) in data:
+        data[str(a[i])] += 1 
+    else:
+        data[str(a[i])] = 1 
 
+data = sorted(data.items(),key=lambda x:x[1], reverse=True)
+#print(data)
 
-            #i_len = 1
+count = 0
+
+if n == 1: 
+    print(a[0])
 else:
-    long_li.append(a[0])
+    if data[0][1] == data[-1][1]:
+        print(a[1])
+    else:
+        for i in range(len(data)-1): 
+            if data[i][1]>data[i+1][1]:
+                count = i 
+                break
+            
 
-#long_li =list(set(long_li))
-if len(long_li) > 1:
-    print(long_li[1])
-elif len(long_li) == 1:
-    print(long_li[0])
-else: # len(long_li) == 0: # 다 다른 경우
-    a = list(set(a))
-    a.sort()
-    print(a[1])
+        if count == 0: #인덱스 0이 최빈값, 최빈값이 하나뿐이란소리
+            print(int(data[0][0]))
+        else: # count > 0: # 0~count이 모두 최빈값이란 소리
+            """li=[]
+            for i in range(count+1):
+                li.append(int(data[i][0]))
+            li.sort()"""
+            print(int(data[1][0]))
 
 print(abs(a[0]-a[-1]))
