@@ -30,7 +30,7 @@ for _ in range(n):
 
 avg = (sum(a) / n)
 
-if avg > 0:
+if avg >= 0:
     if avg%1 >= 0.5:
         avg = int(avg) + 1
     else: 
