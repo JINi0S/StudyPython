@@ -20,7 +20,7 @@ def binary_s(array, target, start, end):
         return binary_s(array, target, start, mid-1)
 
 for i in n_array:
-    res = binary_s(m_array, i, 0, m) 
+    res = binary_s(m_array, i, 0, m-1) 
 
     if res == None:
         print("no")
