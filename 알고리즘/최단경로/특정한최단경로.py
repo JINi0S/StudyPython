@@ -14,6 +14,7 @@
 출력
 첫째 줄에 두 개의 정점을 지나는 최단 경로의 길이를 출력한다. 그러한 경로가 없을 때에는 -1을 출력한다.
 """
+"""플로이드알고리즘
 import sys
 INF = int(1e9)
 n, e = map(int, input().split())
@@ -40,4 +41,4 @@ dis = min(graph[1][v1] + graph[v1][v2] + graph[v2][n], graph[1][v2] + graph[v1][
 if dis >= INF:
     print("-1")
 else:
-    print(dis)
+    print(dis)"""
