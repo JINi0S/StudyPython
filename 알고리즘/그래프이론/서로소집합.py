@@ -7,6 +7,13 @@ def find_parent(parent, x):
         return find_parent(parent, parent[x])
     return x
 
+#최적환된 find_parent 함수
+def find_parents(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parents(parent, parent[x])
+    return parent[x]
+
+
 # 두 원소가 속한 집합을 합치기
 def union_parent(parent, a, b):
     a = find_parent(parent, a)
@@ -34,7 +41,6 @@ for i in range(e):
 print('각 원소가 속한 집합: ', end = '')
 for i in range(1, v+1):
     print(find_parent(parent, i), end=' ')
-
 
 print()
 
