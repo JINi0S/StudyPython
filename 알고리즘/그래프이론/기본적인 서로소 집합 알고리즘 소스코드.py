@@ -1,4 +1,4 @@
-# 기본적인 서로서 집합 알고리즘 소스코드
+# 기본적인 서로소 집합 알고리즘 소스코드
 
 # 특정 원소가 속한 집합을 찾기
 def find_parent(parent, x):
@@ -7,7 +7,7 @@ def find_parent(parent, x):
         return find_parent(parent, parent[x])
     return x
 
-#최적환된 find_parent 함수
+#최적환된 find_parent 함수 : 각 노드에 대하여 find함수를 호출한 이후에, 해당 노드의 루트 노드가 바로 부모 노드가 된다.
 def find_parents(parent, x):
     if parent[x] != x:
         parent[x] = find_parents(parent, parent[x])
